@@ -45,7 +45,8 @@ public class MemberAttentionServiceImpl implements MemberAttentionService {
     @Override
     public int delete(Long brandId) {
         UmsMember member = memberService.getCurrentMember();
-        return memberBrandAttentionRepository.deleteByMemberIdAndBrandId(member.getId(),brandId);
+//        不兼容的类型: 从long转换到int可能会有损失
+        return (int) memberBrandAttentionRepository.deleteByMemberIdAndBrandId(member.getId(),brandId);
     }
 
     @Override
