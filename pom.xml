@@ -223,4 +223,27 @@
         </dependencies>
     </dependencyManagement>
 
+    <profiles>
+
+        <profile>
+            <!-- it开发平台环境，包括生产和沙箱 -->
+            <id>dev</id>
+            <distributionManagement>
+                <repository>
+                    <id>nexus</id>
+                    <name>nexus-host-release</name>
+                    <url>http://10.8.19.78:8081/repository/maven-releases/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>nexus</id>
+                    <name>nexus-host-snapshot</name>
+                    <url>http://10.8.19.78:8081/repository/maven-snapshots/</url>
+                </snapshotRepository>
+            </distributionManagement>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
 </project>
