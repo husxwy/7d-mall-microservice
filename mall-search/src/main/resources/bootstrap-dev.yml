@@ -13,12 +13,6 @@ spring:
         shared-configs:
           - data-id: mall-share-config-mysql.yaml
             group: DEFAULT_GROUP
-          - data-id: mall-share-config-redis.yaml
-            group: DEFAULT_GROUP
-          - data-id: mall-share-config-rabbitmq.yaml
-            group: DEFAULT_GROUP
-          - data-id: mall-share-config-mongodb.yaml
-            group: DEFAULT_GROUP
           - data-id: mall-share-config-elasticsearch.yaml
             group: DEFAULT_GROUP
     sentinel:
