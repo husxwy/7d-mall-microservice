@@ -1,0 +1,10 @@
+show collation;
+
+CREATE DATABASE IF NOT EXISTS mall
+ DEFAULT CHARACTER SET utf8
+DEFAULT COLLATE utf8_unicode_ci;
+
+CREATE USER 'reader'@'%'IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON `mall`.* TO 'reader'@'%' WITH GRANT OPTION;
+
+SHOW GRANTS FOR 'reader'@'%';
