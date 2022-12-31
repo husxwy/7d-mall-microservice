@@ -2,10 +2,21 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: http://172.16.62.179:8848
+        server-addr: nacos.7d.svc.cluster.local:8848
+        namespace: 7e159d89-735d-4c77-8a86-21856ca5bace    # mall-prod
+        group: DEFAULT_GROUP
       config:
-        server-addr: http://172.16.62.179:8848
+        server-addr: nacos.7d.svc.cluster.local:8848
         file-extension: yaml
+        namespace: 7e159d89-735d-4c77-8a86-21856ca5bace    # mall-prod
+        group: DEFAULT_GROUP
+        shared-configs:
+          - data-id: mall-share-config-mysql.yaml
+            group: DEFAULT_GROUP
+          - data-id: mall-share-config-redis.yaml
+            group: DEFAULT_GROUP
+          - data-id: mall-share-config-rabbitmq.yaml
+            group: DEFAULT_GROUP
     sentinel:
       transport:
         dashboard: http://172.16.62.179:8858
