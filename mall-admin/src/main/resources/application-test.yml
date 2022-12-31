@@ -6,34 +6,34 @@ spring:
       url: jdbc:mysql://172.16.106.251:3306/mall_full_link?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
       username: vbi
       password: 123456
-      initial-size: 5 #Á¬½Ó³Ø³õÊ¼»¯´óĞ¡
-      min-idle: 10 #×îĞ¡¿ÕÏĞÁ¬½ÓÊı
-      max-active: 20 #×î´óÁ¬½ÓÊı
+      initial-size: 5 #è¿æ¥æ± åˆå§‹åŒ–å¤§å°
+      min-idle: 10 #æœ€å°ç©ºé—²è¿æ¥æ•°
+      max-active: 20 #æœ€å¤§è¿æ¥æ•°
       web-stat-filter:
-        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*" #²»Í³¼ÆÕâĞ©ÇëÇóÊı¾İ
-      stat-view-servlet: #·ÃÎÊ¼à¿ØÍøÒ³µÄµÇÂ¼ÓÃ»§ÃûºÍÃÜÂë
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*" #ä¸ç»Ÿè®¡è¿™äº›è¯·æ±‚æ•°æ®
+      stat-view-servlet: #è®¿é—®ç›‘æ§ç½‘é¡µçš„ç™»å½•ç”¨æˆ·åå’Œå¯†ç 
         login-username: druid
         login-password: druid
   redis:
-    host: 172.16.62.179 # Redis·şÎñÆ÷µØÖ·
-    database: 1 # RedisÊı¾İ¿âË÷Òı£¨Ä¬ÈÏÎª0£©
-    port: 6379 # Redis·şÎñÆ÷Á¬½Ó¶Ë¿Ú
-    password:  # Redis·şÎñÆ÷Á¬½ÓÃÜÂë£¨Ä¬ÈÏÎª¿Õ£©
-    timeout: 3000ms # Á¬½Ó³¬Ê±Ê±¼ä£¨ºÁÃë£©
-  rabbitmq: #rabbitmqÏà¹ØÅäÖÃ
+    host: 172.16.62.179 # RedisæœåŠ¡å™¨åœ°å€
+    database: 1 # Redisæ•°æ®åº“ç´¢å¼•ï¼ˆé»˜è®¤ä¸º0ï¼‰
+    port: 6379 # RedisæœåŠ¡å™¨è¿æ¥ç«¯å£
+    password:  # RedisæœåŠ¡å™¨è¿æ¥å¯†ç ï¼ˆé»˜è®¤ä¸ºç©ºï¼‰
+    timeout: 3000ms # è¿æ¥è¶…æ—¶æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰
+  rabbitmq: #rabbitmqç›¸å…³é…ç½®
     host: 172.16.62.179
     port: 5672
     username: mall
     password: mall
   servlet:
     multipart:
-      enabled: true #¿ªÆôÎÄ¼şÉÏ´«
-      max-file-size: 10MB #ÏŞÖÆÎÄ¼şÉÏ´«´óĞ¡Îª10M
+      enabled: true #å¼€å¯æ–‡ä»¶ä¸Šä¼ 
+      max-file-size: 10MB #é™åˆ¶æ–‡ä»¶ä¸Šä¼ å¤§å°ä¸º10M
 mybatis:
   mapper-locations:
     - classpath:dao/*.xml
     - classpath*:com/**/mapper/*.xml
-management: #¿ªÆôSpringBoot AdminµÄ¼à¿Ø
+management: #å¼€å¯SpringBoot Adminçš„ç›‘æ§
   endpoints:
     web:
       exposure:
@@ -46,27 +46,27 @@ redis:
   key:
     admin: 'ums:admin'
   expire:
-    common: 86400 # 24Ğ¡Ê±
+    common: 86400 # 24å°æ—¶
 aliyun:
   oss:
-    endpoint: oss-cn-beijing.aliyuncs.com # oss¶ÔÍâ·şÎñµÄ·ÃÎÊÓòÃû
-    accessKeyId: LTAI4G1VRffC4D7CmBv5dFwZ # ·ÃÎÊÉí·İÑéÖ¤ÖĞÓÃµ½ÓÃ»§±êÊ¶
-    accessKeySecret: v8afbIbKpjPqiI26slcdXQHB0kjJDR # ÓÃ»§ÓÃÓÚ¼ÓÃÜÇ©Ãû×Ö·û´®ºÍossÓÃÀ´ÑéÖ¤Ç©Ãû×Ö·û´®µÄÃÜÔ¿
-    bucketName: perfo7 # ossµÄ´æ´¢¿Õ¼ä
+    endpoint: oss-cn-beijing.aliyuncs.com # osså¯¹å¤–æœåŠ¡çš„è®¿é—®åŸŸå
+    accessKeyId: LTAI4G1VRffC4D7CmBv5dFwZ # è®¿é—®èº«ä»½éªŒè¯ä¸­ç”¨åˆ°ç”¨æˆ·æ ‡è¯†
+    accessKeySecret: v8afbIbKpjPqiI26slcdXQHB0kjJDR # ç”¨æˆ·ç”¨äºåŠ å¯†ç­¾åå­—ç¬¦ä¸²å’Œossç”¨æ¥éªŒè¯ç­¾åå­—ç¬¦ä¸²çš„å¯†é’¥
+    bucketName: perfo7 # ossçš„å­˜å‚¨ç©ºé—´
     policy:
-      expire: 300 # Ç©ÃûÓĞĞ§ÆÚ(S)
-    maxSize: 10 # ÉÏ´«ÎÄ¼ş´óĞ¡(M)
-    callback: http://localhost:8080/aliyun/oss/callback # ÎÄ¼şÉÏ´«³É¹¦ºóµÄ»Øµ÷µØÖ·
+      expire: 300 # ç­¾åæœ‰æ•ˆæœŸ(S)
+    maxSize: 10 # ä¸Šä¼ æ–‡ä»¶å¤§å°(M)
+    callback: http://localhost:8080/aliyun/oss/callback # æ–‡ä»¶ä¸Šä¼ æˆåŠŸåçš„å›è°ƒåœ°å€
     dir:
-      prefix: mall/images/ # ÉÏ´«ÎÄ¼ş¼ĞÂ·¾¶Ç°×º
+      prefix: mall/images/ # ä¸Šä¼ æ–‡ä»¶å¤¹è·¯å¾„å‰ç¼€
 minio:
-  endpoint: http://192.168.6.132:9090 #MinIO·şÎñËùÔÚµØÖ·
-  bucketName: mall #´æ´¢Í°Ãû³Æ
-  accessKey: minioadmin #·ÃÎÊµÄkey
-  secretKey: minioadmin #·ÃÎÊµÄÃØÔ¿
+  endpoint: http://192.168.6.132:9090 #MinIOæœåŠ¡æ‰€åœ¨åœ°å€
+  bucketName: mall #å­˜å‚¨æ¡¶åç§°
+  accessKey: minioadmin #è®¿é—®çš„key
+  secretKey: minioadmin #è®¿é—®çš„ç§˜é’¥
 feign:
   okhttp:
     enabled: true
 ribbon:
-  ConnectTimeout: 3000 #·şÎñÇëÇóÁ¬½Ó³¬Ê±Ê±¼ä£¨ºÁÃë£©
-  ReadTimeout: 3000 #·şÎñÇëÇó´¦Àí³¬Ê±Ê±¼ä£¨ºÁÃë£©
+  ConnectTimeout: 3000 #æœåŠ¡è¯·æ±‚è¿æ¥è¶…æ—¶æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰
+  ReadTimeout: 3000 #æœåŠ¡è¯·æ±‚å¤„ç†è¶…æ—¶æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰

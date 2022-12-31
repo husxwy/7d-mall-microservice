@@ -2,7 +2,7 @@ server:
   port: 8086
 spring:
   datasource:
-    url: jdbc:mysql://172.16.106.251:33333/7dnewmall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    url: jdbc:mysql://172.16.106.251:33333/7dnewmall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true
     username: root
     password: 123456
     druid:

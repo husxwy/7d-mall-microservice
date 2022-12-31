@@ -25,7 +25,7 @@ public class JdbcDomeTest {
     private static long begin = 1;
     //每次循环插入的数据量
     private static long end = begin + 10000;
-    private static String url = "jdbc:mysql://172.16.106.130:30336/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true";
+    private static String url = "jdbc:mysql://172.16.106.130:30336/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true";
     private static String user = "reader";
     private static String password = "123456";
     private static String driverClass = "com.mysql.cj.jdbc.Driver";
