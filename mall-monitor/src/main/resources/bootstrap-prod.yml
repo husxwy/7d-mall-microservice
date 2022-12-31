@@ -3,5 +3,5 @@ spring:
     nacos:
       discovery:
         server-addr: nacos.7d.svc.cluster.local:8848
-        namespace: da19c0a5-cca7-4280-9424-506c783b5ea2    # mall-test
+        namespace: 7e159d89-735d-4c77-8a86-21856ca5bace    # mall-prod
         group: DEFAULT_GROUP
