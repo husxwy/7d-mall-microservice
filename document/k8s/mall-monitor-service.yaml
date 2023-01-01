@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: monitor-mall-monitor
+  labels:
+    k8s.kuboard.cn/layer: monitor
 spec:
   replicas: 1
   selector:
@@ -19,7 +21,8 @@ spec:
     spec:
       initContainers:
         - name: init-skywalking-agent
-          image: registry.cn-beijing.aliyuncs.com/xngczl/skywalking-agent:8.1.0
+          image: harbor.kefu.com/test/skywalking-agent:8.1.0
+          imagePullPolicy: IfNotPresent
           command:
             - "sh"
             - "-c"
@@ -28,8 +31,24 @@ spec:
             - mountPath: /vmskywalking/agent
               name: skywalking-agent
       containers:
-        - image: registry.cn-beijing.aliyuncs.com/xngczl/mall-monitor:1.0
-          imagePullPolicy: Always
+        - env:
+            - name: JAVA_OPTS
+              value: >-
+                -Xss256k 
+                -Duser.timezone=Asia/Shanghai 
+                -Djava.security.egd=file:/dev/./urandom
+            - name: AGENT_OPTS
+              value: >-
+                -Dapp.id=mall-monitor
+                -javaagent:/opt/skywalking/agent/skywalking-agent.jar
+                -Dskywalking.agent.service_name=mall-monitor
+                -Dskywalking.collector.backend_service=skywalking-oap:11800
+                -Dskywalking.trace.ignore_path=/actuator/**,Lettuce/**
+            - name: APP_OPTS
+              value: >-
+                --spring.profiles.active=test
+          image: harbor.kefu.com/test/mall-monitor:1.0-SNAPSHOT-husx-master-6faf090-2
+          imagePullPolicy: IfNotPresent
           name: mall-monitor
           ports:
             - containerPort: 8101
@@ -46,12 +65,12 @@ kind: Service
 metadata:
   name: monitor-mall-monitor
 spec:
-  type: NodePort         // 配置为NodePort，外部可以访问
+  type: NodePort         # 配置为NodePort，外部可以访问
   ports:
     - name: http
       port: 8101
       protocol: TCP
       targetPort: 8101
-      nodePort: 30002      // NodePort，外部访问的端口
+      nodePort: 30399     #  NodePort，外部访问的端口
   selector:
     app: monitor-mall-monitor
