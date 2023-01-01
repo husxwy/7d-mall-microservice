@@ -1,0 +1,3026 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "mall会员相关接口文档",
+    "version": "1.0",
+    "title": "mall-会员管理前台系统",
+    "contact": {
+      "name": "dunshan"
+    }
+  },
+  "host": "10.8.14.84:30300",
+  "basePath": "/mall-member",
+  "tags": [
+    {
+      "name": "MemberAttentionController",
+      "description": "会员关注品牌管理"
+    },
+    {
+      "name": "MemberCollectionController",
+      "description": "会员收藏管理"
+    },
+    {
+      "name": "MemberController",
+      "description": "会员登录注册管理"
+    },
+    {
+      "name": "MemberReadHistoryController",
+      "description": "会员商品浏览记录管理"
+    },
+    {
+      "name": "UmsMemberCouponController",
+      "description": "用户优惠券管理"
+    },
+    {
+      "name": "UmsMemberReceiveAddressController",
+      "description": "会员收货地址管理"
+    }
+  ],
+  "paths": {
+    "/member/address/add": {
+      "post": {
+        "tags": [
+          "UmsMemberReceiveAddressController"
+        ],
+        "summary": "添加收货地址",
+        "operationId": "addUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "address",
+            "description": "address",
+            "required": true,
+            "schema": {
+              "originalRef": "UmsMemberReceiveAddress",
+              "$ref": "#/definitions/UmsMemberReceiveAddress"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/address/delete/{id}": {
+      "post": {
+        "tags": [
+          "UmsMemberReceiveAddressController"
+        ],
+        "summary": "删除收货地址",
+        "operationId": "deleteUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/address/list": {
+      "get": {
+        "tags": [
+          "UmsMemberReceiveAddressController"
+        ],
+        "summary": "显示所有收货地址",
+        "operationId": "listUsingGET_4",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«List«UmsMemberReceiveAddress»»",
+              "$ref": "#/definitions/CommonResult«List«UmsMemberReceiveAddress»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/address/update/{id}": {
+      "post": {
+        "tags": [
+          "UmsMemberReceiveAddressController"
+        ],
+        "summary": "修改收货地址",
+        "operationId": "updateUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "address",
+            "description": "address",
+            "required": true,
+            "schema": {
+              "originalRef": "UmsMemberReceiveAddress",
+              "$ref": "#/definitions/UmsMemberReceiveAddress"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/address/{id}": {
+      "get": {
+        "tags": [
+          "UmsMemberReceiveAddressController"
+        ],
+        "summary": "获取收货地址详情",
+        "operationId": "getItemUsingGET_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«UmsMemberReceiveAddress»",
+              "$ref": "#/definitions/CommonResult«UmsMemberReceiveAddress»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/attention/add": {
+      "post": {
+        "tags": [
+          "MemberAttentionController"
+        ],
+        "summary": "添加品牌关注",
+        "operationId": "addUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "memberBrandAttention",
+            "description": "memberBrandAttention",
+            "required": true,
+            "schema": {
+              "originalRef": "MemberBrandAttention",
+              "$ref": "#/definitions/MemberBrandAttention"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/attention/clear": {
+      "post": {
+        "tags": [
+          "MemberAttentionController"
+        ],
+        "summary": "清空关注列表",
+        "operationId": "clearUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/attention/delete": {
+      "post": {
+        "tags": [
+          "MemberAttentionController"
+        ],
+        "summary": "取消关注",
+        "operationId": "deleteUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "brandId",
+            "in": "query",
+            "description": "brandId",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/attention/detail": {
+      "get": {
+        "tags": [
+          "MemberAttentionController"
+        ],
+        "summary": "显示关注品牌详情",
+        "operationId": "detailUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "brandId",
+            "in": "query",
+            "description": "brandId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«MemberBrandAttention»",
+              "$ref": "#/definitions/CommonResult«MemberBrandAttention»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/attention/list": {
+      "get": {
+        "tags": [
+          "MemberAttentionController"
+        ],
+        "summary": "显示关注列表",
+        "operationId": "listUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "pageNum",
+            "required": false,
+            "type": "integer",
+            "default": 1,
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "default": 5,
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«CommonPage«MemberBrandAttention»»",
+              "$ref": "#/definitions/CommonResult«CommonPage«MemberBrandAttention»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/coupon/add/{couponId}": {
+      "post": {
+        "tags": [
+          "UmsMemberCouponController"
+        ],
+        "summary": "领取指定优惠券",
+        "operationId": "addUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "couponId",
+            "in": "path",
+            "description": "couponId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/coupon/cartList": {
+      "post": {
+        "tags": [
+          "UmsMemberCouponController"
+        ],
+        "summary": "根据购物车信息获取可用优惠券",
+        "operationId": "listCartUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "cartItemList",
+            "description": "cartItemList",
+            "required": true,
+            "schema": {
+              "originalRef": "OmsCartItemVo",
+              "$ref": "#/definitions/OmsCartItemVo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "originalRef": "SmsCouponHistoryDetail",
+                "$ref": "#/definitions/SmsCouponHistoryDetail"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/coupon/list": {
+      "get": {
+        "tags": [
+          "UmsMemberCouponController"
+        ],
+        "summary": "获取用户优惠券列表",
+        "operationId": "listUsingGET_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "useStatus",
+            "in": "query",
+            "description": "优惠券筛选类型:0->未使用；1->已使用；2->已过期",
+            "required": false,
+            "type": "ref",
+            "enum": [
+              "0",
+              "1",
+              "2"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«List«SmsCoupon»»",
+              "$ref": "#/definitions/CommonResult«List«SmsCoupon»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/coupon/list/cart/{type}": {
+      "get": {
+        "tags": [
+          "UmsMemberCouponController"
+        ],
+        "summary": "获取登录会员购物车的相关优惠券",
+        "operationId": "listCartUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "使用可用:0->不可用；1->可用",
+            "required": false,
+            "type": "ref",
+            "default": "1",
+            "enum": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«List«SmsCouponHistoryDetail»»",
+              "$ref": "#/definitions/CommonResult«List«SmsCouponHistoryDetail»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/coupon/listByProduct/{productId}": {
+      "get": {
+        "tags": [
+          "UmsMemberCouponController"
+        ],
+        "summary": "获取当前商品相关优惠券",
+        "operationId": "listByProductUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "productId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«List«SmsCoupon»»",
+              "$ref": "#/definitions/CommonResult«List«SmsCoupon»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/coupon/listHistory": {
+      "get": {
+        "tags": [
+          "UmsMemberCouponController"
+        ],
+        "summary": "获取用户优惠券历史列表",
+        "operationId": "listHistoryUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "useStatus",
+            "in": "query",
+            "description": "优惠券筛选类型:0->未使用；1->已使用；2->已过期",
+            "required": false,
+            "type": "ref",
+            "enum": [
+              "0",
+              "1",
+              "2"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«List«SmsCouponHistory»»",
+              "$ref": "#/definitions/CommonResult«List«SmsCouponHistory»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/productCollection/add": {
+      "post": {
+        "tags": [
+          "MemberCollectionController"
+        ],
+        "summary": "添加商品收藏",
+        "operationId": "addUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "productCollection",
+            "description": "productCollection",
+            "required": true,
+            "schema": {
+              "originalRef": "MemberProductCollection",
+              "$ref": "#/definitions/MemberProductCollection"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/productCollection/clear": {
+      "post": {
+        "tags": [
+          "MemberCollectionController"
+        ],
+        "summary": "清空收藏列表",
+        "operationId": "clearUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/productCollection/delete": {
+      "post": {
+        "tags": [
+          "MemberCollectionController"
+        ],
+        "summary": "删除收藏商品",
+        "operationId": "deleteUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "query",
+            "description": "productId",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/productCollection/detail": {
+      "get": {
+        "tags": [
+          "MemberCollectionController"
+        ],
+        "summary": "显示收藏商品详情",
+        "operationId": "detailUsingGET_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "query",
+            "description": "productId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«MemberProductCollection»",
+              "$ref": "#/definitions/CommonResult«MemberProductCollection»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/productCollection/list": {
+      "get": {
+        "tags": [
+          "MemberCollectionController"
+        ],
+        "summary": "显示收藏列表",
+        "operationId": "listUsingGET_2",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "pageNum",
+            "required": false,
+            "type": "integer",
+            "default": 1,
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "default": 5,
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«CommonPage«MemberProductCollection»»",
+              "$ref": "#/definitions/CommonResult«CommonPage«MemberProductCollection»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/readHistory/clear": {
+      "post": {
+        "tags": [
+          "MemberReadHistoryController"
+        ],
+        "summary": "清空除浏览记录",
+        "operationId": "clearUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/readHistory/create": {
+      "post": {
+        "tags": [
+          "MemberReadHistoryController"
+        ],
+        "summary": "创建浏览记录",
+        "operationId": "createUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "memberReadHistory",
+            "description": "memberReadHistory",
+            "required": true,
+            "schema": {
+              "originalRef": "MemberReadHistory",
+              "$ref": "#/definitions/MemberReadHistory"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/readHistory/delete": {
+      "post": {
+        "tags": [
+          "MemberReadHistoryController"
+        ],
+        "summary": "删除浏览记录",
+        "operationId": "deleteUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "ids",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/member/readHistory/list": {
+      "get": {
+        "tags": [
+          "MemberReadHistoryController"
+        ],
+        "summary": "分页获取用户浏览记录",
+        "operationId": "listUsingGET_3",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "pageNum",
+            "required": false,
+            "type": "integer",
+            "default": 1,
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "default": 5,
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«CommonPage«MemberReadHistory»»",
+              "$ref": "#/definitions/CommonResult«CommonPage«MemberReadHistory»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/address": {
+      "get": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "获取地址详情",
+        "operationId": "getItemUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "UmsMemberReceiveAddress",
+              "$ref": "#/definitions/UmsMemberReceiveAddress"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/feign/info": {
+      "get": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "远程调用获取会员信息",
+        "operationId": "getCurrentMemberUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "UmsMember",
+              "$ref": "#/definitions/UmsMember"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/feign/info/address": {
+      "get": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "返回当前用户的收货地址",
+        "operationId": "listAddressUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "originalRef": "UmsMemberReceiveAddress",
+                "$ref": "#/definitions/UmsMemberReceiveAddress"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/feign/info/address1": {
+      "get": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "返回当前用户的收货地址",
+        "operationId": "listAddress1UsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/getAuthCode": {
+      "get": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "获取验证码",
+        "operationId": "getAuthCodeUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "telephone",
+            "in": "query",
+            "description": "telephone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/getId/{id}": {
+      "get": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "根据会员编号获取会员",
+        "operationId": "getByIdUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "UmsMember",
+              "$ref": "#/definitions/UmsMember"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/info": {
+      "get": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "获取会员信息",
+        "operationId": "infoUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/loadByUsername": {
+      "get": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "根据用户名获取通用用户信息",
+        "operationId": "loadUserByUsernameUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "UserDto",
+              "$ref": "#/definitions/UserDto"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/loadUserCache": {
+      "get": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "加载全量用户缓存",
+        "operationId": "loadUserCacheUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/login": {
+      "post": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "会员登录",
+        "operationId": "loginUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "password",
+            "in": "query",
+            "description": "password",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "description": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/nacos": {
+      "get": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "调试动态刷新",
+        "operationId": "nacosResultUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/register": {
+      "post": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "会员注册",
+        "operationId": "registerUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "authCode",
+            "in": "query",
+            "description": "authCode",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "password",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "telephone",
+            "in": "query",
+            "description": "telephone",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "description": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/removeUserCache": {
+      "get": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "清除全量用户缓存",
+        "operationId": "removeUserCacheUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/update/{id}/{integration}": {
+      "get": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "根据购物车信息获取可用优惠券",
+        "operationId": "updateIntegrationUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "integration",
+            "in": "path",
+            "description": "integration",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/sso/updatePassword": {
+      "post": {
+        "tags": [
+          "MemberController"
+        ],
+        "summary": "修改密码",
+        "operationId": "updatePasswordUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "authCode",
+            "in": "query",
+            "description": "authCode",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "password",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "telephone",
+            "in": "query",
+            "description": "telephone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "CartPromotionItem": {
+      "type": "object",
+      "properties": {
+        "createDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间"
+        },
+        "deleteStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否删除"
+        },
+        "growth": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "integration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberNickname": {
+          "type": "string",
+          "description": "会员昵称"
+        },
+        "modifyDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "修改时间"
+        },
+        "price": {
+          "type": "number",
+          "description": "添加到购物车的价格"
+        },
+        "productAttr": {
+          "type": "string",
+          "description": "商品销售属性:[{'key':'颜色','value':'颜色'},{'key':'容量','value':'4G'}]"
+        },
+        "productBrand": {
+          "type": "string"
+        },
+        "productCategoryId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商品分类"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string",
+          "description": "商品名称"
+        },
+        "productPic": {
+          "type": "string",
+          "description": "商品主图"
+        },
+        "productSkuCode": {
+          "type": "string",
+          "description": "商品sku条码"
+        },
+        "productSkuId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productSn": {
+          "type": "string"
+        },
+        "productSubTitle": {
+          "type": "string",
+          "description": "商品副标题（卖点）"
+        },
+        "promotionMessage": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "购买数量"
+        },
+        "realStock": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reduceAmount": {
+          "type": "number"
+        }
+      },
+      "title": "CartPromotionItem"
+    },
+    "CommonPage«MemberBrandAttention»": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "originalRef": "MemberBrandAttention",
+            "$ref": "#/definitions/MemberBrandAttention"
+          }
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPage": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "CommonPage«MemberBrandAttention»"
+    },
+    "CommonPage«MemberProductCollection»": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "originalRef": "MemberProductCollection",
+            "$ref": "#/definitions/MemberProductCollection"
+          }
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPage": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "CommonPage«MemberProductCollection»"
+    },
+    "CommonPage«MemberReadHistory»": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "originalRef": "MemberReadHistory",
+            "$ref": "#/definitions/MemberReadHistory"
+          }
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPage": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "CommonPage«MemberReadHistory»"
+    },
+    "CommonResult": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "type": "object"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult"
+    },
+    "CommonResult«CommonPage«MemberBrandAttention»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "originalRef": "CommonPage«MemberBrandAttention»",
+          "$ref": "#/definitions/CommonPage«MemberBrandAttention»"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«CommonPage«MemberBrandAttention»»"
+    },
+    "CommonResult«CommonPage«MemberProductCollection»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "originalRef": "CommonPage«MemberProductCollection»",
+          "$ref": "#/definitions/CommonPage«MemberProductCollection»"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«CommonPage«MemberProductCollection»»"
+    },
+    "CommonResult«CommonPage«MemberReadHistory»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "originalRef": "CommonPage«MemberReadHistory»",
+          "$ref": "#/definitions/CommonPage«MemberReadHistory»"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«CommonPage«MemberReadHistory»»"
+    },
+    "CommonResult«List«SmsCouponHistoryDetail»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "originalRef": "SmsCouponHistoryDetail",
+            "$ref": "#/definitions/SmsCouponHistoryDetail"
+          }
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«List«SmsCouponHistoryDetail»»"
+    },
+    "CommonResult«List«SmsCouponHistory»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "originalRef": "SmsCouponHistory",
+            "$ref": "#/definitions/SmsCouponHistory"
+          }
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«List«SmsCouponHistory»»"
+    },
+    "CommonResult«List«SmsCoupon»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "originalRef": "SmsCoupon",
+            "$ref": "#/definitions/SmsCoupon"
+          }
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«List«SmsCoupon»»"
+    },
+    "CommonResult«List«UmsMemberReceiveAddress»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "originalRef": "UmsMemberReceiveAddress",
+            "$ref": "#/definitions/UmsMemberReceiveAddress"
+          }
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«List«UmsMemberReceiveAddress»»"
+    },
+    "CommonResult«MemberBrandAttention»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "originalRef": "MemberBrandAttention",
+          "$ref": "#/definitions/MemberBrandAttention"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«MemberBrandAttention»"
+    },
+    "CommonResult«MemberProductCollection»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "originalRef": "MemberProductCollection",
+          "$ref": "#/definitions/MemberProductCollection"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«MemberProductCollection»"
+    },
+    "CommonResult«UmsMemberReceiveAddress»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "originalRef": "UmsMemberReceiveAddress",
+          "$ref": "#/definitions/UmsMemberReceiveAddress"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«UmsMemberReceiveAddress»"
+    },
+    "MemberBrandAttention": {
+      "type": "object",
+      "properties": {
+        "brandCity": {
+          "type": "string"
+        },
+        "brandId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "brandLogo": {
+          "type": "string"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "memberIcon": {
+          "type": "string"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberNickname": {
+          "type": "string"
+        }
+      },
+      "title": "MemberBrandAttention"
+    },
+    "MemberProductCollection": {
+      "type": "object",
+      "properties": {
+        "createTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "memberIcon": {
+          "type": "string"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberNickname": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productPic": {
+          "type": "string"
+        },
+        "productPrice": {
+          "type": "string"
+        },
+        "productSubTitle": {
+          "type": "string"
+        }
+      },
+      "title": "MemberProductCollection"
+    },
+    "MemberReadHistory": {
+      "type": "object",
+      "properties": {
+        "createTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "memberIcon": {
+          "type": "string"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberNickname": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productPic": {
+          "type": "string"
+        },
+        "productPrice": {
+          "type": "string"
+        },
+        "productSubTitle": {
+          "type": "string"
+        }
+      },
+      "title": "MemberReadHistory"
+    },
+    "OmsCartItemVo": {
+      "type": "object",
+      "properties": {
+        "cartItemList": {
+          "type": "array",
+          "items": {
+            "originalRef": "CartPromotionItem",
+            "$ref": "#/definitions/CartPromotionItem"
+          }
+        }
+      },
+      "title": "OmsCartItemVo"
+    },
+    "SmsCoupon": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "金额"
+        },
+        "code": {
+          "type": "string",
+          "description": "优惠码"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "数量"
+        },
+        "enableTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "可以领取的日期"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberLevel": {
+          "type": "integer",
+          "format": "int32",
+          "description": "可领取的会员类型：0->无限时"
+        },
+        "minPoint": {
+          "type": "number",
+          "description": "使用门槛；0表示无门槛"
+        },
+        "name": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string",
+          "description": "备注"
+        },
+        "perLimit": {
+          "type": "integer",
+          "format": "int32",
+          "description": "每人限领张数"
+        },
+        "platform": {
+          "type": "integer",
+          "format": "int32",
+          "description": "使用平台：0->全部；1->移动；2->PC"
+        },
+        "publishCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "发行数量"
+        },
+        "receiveCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "领取数量"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "description": "优惠卷类型；0->全场赠券；1->会员赠券；2->购物赠券；3->注册赠券"
+        },
+        "useCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "已使用数量"
+        },
+        "useType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "使用类型：0->全场通用；1->指定分类；2->指定商品"
+        }
+      },
+      "title": "SmsCoupon"
+    },
+    "SmsCouponHistory": {
+      "type": "object",
+      "properties": {
+        "couponCode": {
+          "type": "string"
+        },
+        "couponId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "getType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "获取类型：0->后台赠送；1->主动获取"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberNickname": {
+          "type": "string",
+          "description": "领取人昵称"
+        },
+        "orderId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "订单编号"
+        },
+        "orderSn": {
+          "type": "string",
+          "description": "订单号码"
+        },
+        "useStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "使用状态：0->未使用；1->已使用；2->已过期"
+        },
+        "useTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "使用时间"
+        }
+      },
+      "title": "SmsCouponHistory"
+    },
+    "SmsCouponHistoryDetail": {
+      "type": "object",
+      "properties": {
+        "categoryRelationList": {
+          "type": "array",
+          "items": {
+            "originalRef": "SmsCouponProductCategoryRelation",
+            "$ref": "#/definitions/SmsCouponProductCategoryRelation"
+          }
+        },
+        "coupon": {
+          "originalRef": "SmsCoupon",
+          "$ref": "#/definitions/SmsCoupon"
+        },
+        "couponCode": {
+          "type": "string"
+        },
+        "couponId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "getType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "获取类型：0->后台赠送；1->主动获取"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberNickname": {
+          "type": "string",
+          "description": "领取人昵称"
+        },
+        "orderId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "订单编号"
+        },
+        "orderSn": {
+          "type": "string",
+          "description": "订单号码"
+        },
+        "productRelationList": {
+          "type": "array",
+          "items": {
+            "originalRef": "SmsCouponProductRelation",
+            "$ref": "#/definitions/SmsCouponProductRelation"
+          }
+        },
+        "useStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "使用状态：0->未使用；1->已使用；2->已过期"
+        },
+        "useTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "使用时间"
+        }
+      },
+      "title": "SmsCouponHistoryDetail"
+    },
+    "SmsCouponProductCategoryRelation": {
+      "type": "object",
+      "properties": {
+        "couponId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "parentCategoryName": {
+          "type": "string",
+          "description": "父分类名称"
+        },
+        "productCategoryId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productCategoryName": {
+          "type": "string",
+          "description": "产品分类名称"
+        }
+      },
+      "title": "SmsCouponProductCategoryRelation"
+    },
+    "SmsCouponProductRelation": {
+      "type": "object",
+      "properties": {
+        "couponId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string",
+          "description": "商品名称"
+        },
+        "productSn": {
+          "type": "string",
+          "description": "商品编码"
+        }
+      },
+      "title": "SmsCouponProductRelation"
+    },
+    "UmsMember": {
+      "type": "object",
+      "properties": {
+        "birthday": {
+          "type": "string",
+          "format": "date-time",
+          "description": "生日"
+        },
+        "city": {
+          "type": "string",
+          "description": "所做城市"
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "注册时间"
+        },
+        "gender": {
+          "type": "integer",
+          "format": "int32",
+          "description": "性别：0->未知；1->男；2->女"
+        },
+        "growth": {
+          "type": "integer",
+          "format": "int32",
+          "description": "成长值"
+        },
+        "historyIntegration": {
+          "type": "integer",
+          "format": "int32",
+          "description": "历史积分数量"
+        },
+        "icon": {
+          "type": "string",
+          "description": "头像"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "integration": {
+          "type": "integer",
+          "format": "int32",
+          "description": "积分"
+        },
+        "job": {
+          "type": "string",
+          "description": "职业"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "originalRef": "UmsMemberReceiveAddress",
+            "$ref": "#/definitions/UmsMemberReceiveAddress"
+          }
+        },
+        "luckeyCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "剩余抽奖次数"
+        },
+        "memberLevelId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "nickname": {
+          "type": "string",
+          "description": "昵称"
+        },
+        "password": {
+          "type": "string",
+          "description": "密码"
+        },
+        "personalizedSignature": {
+          "type": "string",
+          "description": "个性签名"
+        },
+        "phone": {
+          "type": "string",
+          "description": "手机号码"
+        },
+        "sourceType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "用户来源"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "帐号启用状态:0->禁用；1->启用"
+        },
+        "username": {
+          "type": "string",
+          "description": "用户名"
+        }
+      },
+      "title": "UmsMember"
+    },
+    "UmsMemberReceiveAddress": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "城市"
+        },
+        "defaultStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否为默认"
+        },
+        "detailAddress": {
+          "type": "string",
+          "description": "详细地址(街道)"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "用户id"
+        },
+        "name": {
+          "type": "string",
+          "description": "收货人名称"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "电话号码"
+        },
+        "postCode": {
+          "type": "string",
+          "description": "邮政编码"
+        },
+        "province": {
+          "type": "string",
+          "description": "省份/直辖市"
+        },
+        "region": {
+          "type": "string",
+          "description": "区"
+        }
+      },
+      "title": "UmsMemberReceiveAddress"
+    },
+    "UserDto": {
+      "type": "object",
+      "properties": {
+        "clientId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "password": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "title": "UserDto"
+    }
+  }
+}

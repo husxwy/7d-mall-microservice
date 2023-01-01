@@ -1,0 +1,1584 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "mall-订单系统-前台相关接口文档",
+    "version": "1.0",
+    "title": "mall-订单系统-前台系统",
+    "contact": {
+      "name": "dunshan"
+    }
+  },
+  "host": "10.8.14.84:30300",
+  "basePath": "/mall-order",
+  "tags": [
+    {
+      "name": "OmsPortalOrderController",
+      "description": "订单管理"
+    }
+  ],
+  "paths": {
+    "/order/cancelOrder": {
+      "post": {
+        "tags": [
+          "OmsPortalOrderController"
+        ],
+        "summary": "取消单个超时订单",
+        "operationId": "cancelOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "description": "orderId",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/order/cancelTimeOutOrder": {
+      "post": {
+        "tags": [
+          "OmsPortalOrderController"
+        ],
+        "summary": "自动取消超时订单",
+        "operationId": "cancelTimeOutOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/order/cancelUserOrder": {
+      "post": {
+        "tags": [
+          "OmsPortalOrderController"
+        ],
+        "summary": "用户取消订单",
+        "operationId": "cancelUserOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "description": "orderId",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/order/confirmReceiveOrder": {
+      "post": {
+        "tags": [
+          "OmsPortalOrderController"
+        ],
+        "summary": "用户确认收货",
+        "operationId": "confirmReceiveOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "description": "orderId",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/order/deleteOrder": {
+      "post": {
+        "tags": [
+          "OmsPortalOrderController"
+        ],
+        "summary": "用户删除订单",
+        "operationId": "deleteOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "description": "orderId",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/order/detail/redis/{orderId}": {
+      "get": {
+        "tags": [
+          "OmsPortalOrderController"
+        ],
+        "summary": "根据ID获取订单详情-redis",
+        "operationId": "detailRdisUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "orderId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«OmsOrderDetail»",
+              "$ref": "#/definitions/CommonResult«OmsOrderDetail»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/order/detail/{orderId}": {
+      "get": {
+        "tags": [
+          "OmsPortalOrderController"
+        ],
+        "summary": "根据ID获取订单详情",
+        "operationId": "detailUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "orderId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«OmsOrderDetail»",
+              "$ref": "#/definitions/CommonResult«OmsOrderDetail»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/order/generateConfirmOrder": {
+      "post": {
+        "tags": [
+          "OmsPortalOrderController"
+        ],
+        "summary": "根据购物车信息生成确认单信息",
+        "operationId": "generateConfirmOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "cartIds",
+            "description": "cartIds",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«ConfirmOrderResult»",
+              "$ref": "#/definitions/CommonResult«ConfirmOrderResult»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/order/generateOrder": {
+      "post": {
+        "tags": [
+          "OmsPortalOrderController"
+        ],
+        "summary": "根据购物车信息生成订单",
+        "operationId": "generateOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "orderParam",
+            "description": "orderParam",
+            "required": true,
+            "schema": {
+              "originalRef": "OrderParam",
+              "$ref": "#/definitions/OrderParam"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/order/list": {
+      "get": {
+        "tags": [
+          "OmsPortalOrderController"
+        ],
+        "summary": "按状态分页获取用户订单列表",
+        "operationId": "listUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "pageNum",
+            "required": false,
+            "type": "integer",
+            "default": 1,
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "default": 5,
+            "format": "int32"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "订单状态：-1->全部；0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭",
+            "required": false,
+            "type": "integer",
+            "default": -1,
+            "format": "int32",
+            "enum": [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«CommonPage«OmsOrderDetail»»",
+              "$ref": "#/definitions/CommonResult«CommonPage«OmsOrderDetail»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/order/list/redis": {
+      "get": {
+        "tags": [
+          "OmsPortalOrderController"
+        ],
+        "summary": "按状态分页获取用户订单列表",
+        "operationId": "listredisUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "pageNum",
+            "required": false,
+            "type": "integer",
+            "default": 1,
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "default": 5,
+            "format": "int32"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "订单状态：-1->全部；0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭",
+            "required": false,
+            "type": "integer",
+            "default": -1,
+            "format": "int32",
+            "enum": [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult«CommonPage«OmsOrderDetail»»",
+              "$ref": "#/definitions/CommonResult«CommonPage«OmsOrderDetail»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/order/paySuccess": {
+      "post": {
+        "tags": [
+          "OmsPortalOrderController"
+        ],
+        "summary": "用户支付成功的回调",
+        "operationId": "paySuccessUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "description": "orderId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "payType",
+            "in": "query",
+            "description": "payType",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "CommonResult",
+              "$ref": "#/definitions/CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "CalcAmount": {
+      "type": "object",
+      "properties": {
+        "freightAmount": {
+          "type": "number"
+        },
+        "payAmount": {
+          "type": "number"
+        },
+        "promotionAmount": {
+          "type": "number"
+        },
+        "totalAmount": {
+          "type": "number"
+        }
+      },
+      "title": "CalcAmount"
+    },
+    "CartPromotionItem": {
+      "type": "object",
+      "properties": {
+        "createDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间"
+        },
+        "deleteStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否删除"
+        },
+        "growth": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "integration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberNickname": {
+          "type": "string",
+          "description": "会员昵称"
+        },
+        "modifyDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "修改时间"
+        },
+        "price": {
+          "type": "number",
+          "description": "添加到购物车的价格"
+        },
+        "productAttr": {
+          "type": "string",
+          "description": "商品销售属性:[{'key':'颜色','value':'颜色'},{'key':'容量','value':'4G'}]"
+        },
+        "productBrand": {
+          "type": "string"
+        },
+        "productCategoryId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商品分类"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string",
+          "description": "商品名称"
+        },
+        "productPic": {
+          "type": "string",
+          "description": "商品主图"
+        },
+        "productSkuCode": {
+          "type": "string",
+          "description": "商品sku条码"
+        },
+        "productSkuId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productSn": {
+          "type": "string"
+        },
+        "productSubTitle": {
+          "type": "string",
+          "description": "商品副标题（卖点）"
+        },
+        "promotionMessage": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "购买数量"
+        },
+        "realStock": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reduceAmount": {
+          "type": "number"
+        }
+      },
+      "title": "CartPromotionItem"
+    },
+    "CommonPage«OmsOrderDetail»": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "originalRef": "OmsOrderDetail",
+            "$ref": "#/definitions/OmsOrderDetail"
+          }
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPage": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "CommonPage«OmsOrderDetail»"
+    },
+    "CommonResult": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "type": "object"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult"
+    },
+    "CommonResult«CommonPage«OmsOrderDetail»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "originalRef": "CommonPage«OmsOrderDetail»",
+          "$ref": "#/definitions/CommonPage«OmsOrderDetail»"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«CommonPage«OmsOrderDetail»»"
+    },
+    "CommonResult«ConfirmOrderResult»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "originalRef": "ConfirmOrderResult",
+          "$ref": "#/definitions/ConfirmOrderResult"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«ConfirmOrderResult»"
+    },
+    "CommonResult«OmsOrderDetail»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "originalRef": "OmsOrderDetail",
+          "$ref": "#/definitions/OmsOrderDetail"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«OmsOrderDetail»"
+    },
+    "ConfirmOrderResult": {
+      "type": "object",
+      "properties": {
+        "calcAmount": {
+          "originalRef": "CalcAmount",
+          "$ref": "#/definitions/CalcAmount"
+        },
+        "cartPromotionItemList": {
+          "type": "array",
+          "items": {
+            "originalRef": "CartPromotionItem",
+            "$ref": "#/definitions/CartPromotionItem"
+          }
+        },
+        "couponHistoryDetailList": {
+          "type": "array",
+          "items": {
+            "originalRef": "SmsCouponHistoryDetail",
+            "$ref": "#/definitions/SmsCouponHistoryDetail"
+          }
+        },
+        "integrationConsumeSetting": {
+          "originalRef": "UmsIntegrationConsumeSetting",
+          "$ref": "#/definitions/UmsIntegrationConsumeSetting"
+        },
+        "memberIntegration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberReceiveAddressList": {
+          "type": "array",
+          "items": {
+            "originalRef": "UmsMemberReceiveAddress",
+            "$ref": "#/definitions/UmsMemberReceiveAddress"
+          }
+        }
+      },
+      "title": "ConfirmOrderResult"
+    },
+    "OmsOrderDetail": {
+      "type": "object",
+      "properties": {
+        "autoConfirmDay": {
+          "type": "integer",
+          "format": "int32",
+          "description": "自动确认时间（天）"
+        },
+        "billContent": {
+          "type": "string",
+          "description": "发票内容"
+        },
+        "billHeader": {
+          "type": "string",
+          "description": "发票抬头"
+        },
+        "billReceiverEmail": {
+          "type": "string",
+          "description": "收票人邮箱"
+        },
+        "billReceiverPhone": {
+          "type": "string",
+          "description": "收票人电话"
+        },
+        "billType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "发票类型：0->不开发票；1->电子发票；2->纸质发票"
+        },
+        "commentTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "评价时间"
+        },
+        "confirmStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "确认收货状态：0->未确认；1->已确认"
+        },
+        "couponAmount": {
+          "type": "number",
+          "description": "优惠券抵扣金额"
+        },
+        "couponId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "提交时间"
+        },
+        "deleteStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "删除状态：0->未删除；1->已删除"
+        },
+        "deliveryCompany": {
+          "type": "string",
+          "description": "物流公司(配送方式)"
+        },
+        "deliverySn": {
+          "type": "string",
+          "description": "物流单号"
+        },
+        "deliveryTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "发货时间"
+        },
+        "discountAmount": {
+          "type": "number",
+          "description": "管理员后台调整订单使用的折扣金额"
+        },
+        "freightAmount": {
+          "type": "number",
+          "description": "运费金额"
+        },
+        "growth": {
+          "type": "integer",
+          "format": "int32",
+          "description": "可以活动的成长值"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "订单id"
+        },
+        "integration": {
+          "type": "integer",
+          "format": "int32",
+          "description": "可以获得的积分"
+        },
+        "integrationAmount": {
+          "type": "number",
+          "description": "积分抵扣金额"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberUsername": {
+          "type": "string",
+          "description": "用户帐号"
+        },
+        "modifyTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "修改时间"
+        },
+        "note": {
+          "type": "string",
+          "description": "订单备注"
+        },
+        "orderItemList": {
+          "type": "array",
+          "items": {
+            "originalRef": "OmsOrderItem",
+            "$ref": "#/definitions/OmsOrderItem"
+          }
+        },
+        "orderSn": {
+          "type": "string",
+          "description": "订单编号"
+        },
+        "orderType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "订单类型：0->正常订单；1->秒杀订单"
+        },
+        "payAmount": {
+          "type": "number",
+          "description": "应付金额（实际支付金额）"
+        },
+        "payType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "支付方式：0->未支付；1->支付宝；2->微信"
+        },
+        "paymentTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "支付时间"
+        },
+        "promotionAmount": {
+          "type": "number",
+          "description": "促销优化金额（促销价、满减、阶梯价）"
+        },
+        "promotionInfo": {
+          "type": "string",
+          "description": "活动信息"
+        },
+        "receiveTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "确认收货时间"
+        },
+        "receiverCity": {
+          "type": "string",
+          "description": "城市"
+        },
+        "receiverDetailAddress": {
+          "type": "string",
+          "description": "详细地址"
+        },
+        "receiverName": {
+          "type": "string",
+          "description": "收货人姓名"
+        },
+        "receiverPhone": {
+          "type": "string",
+          "description": "收货人电话"
+        },
+        "receiverPostCode": {
+          "type": "string",
+          "description": "收货人邮编"
+        },
+        "receiverProvince": {
+          "type": "string",
+          "description": "省份/直辖市"
+        },
+        "receiverRegion": {
+          "type": "string",
+          "description": "区"
+        },
+        "sourceType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "订单来源：0->PC订单；1->app订单"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单"
+        },
+        "totalAmount": {
+          "type": "number",
+          "description": "订单总金额"
+        },
+        "useIntegration": {
+          "type": "integer",
+          "format": "int32",
+          "description": "下单时使用的积分"
+        }
+      },
+      "title": "OmsOrderDetail"
+    },
+    "OmsOrderItem": {
+      "type": "object",
+      "properties": {
+        "couponAmount": {
+          "type": "number",
+          "description": "优惠券优惠分解金额"
+        },
+        "giftGrowth": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "giftIntegration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "integrationAmount": {
+          "type": "number",
+          "description": "积分优惠分解金额"
+        },
+        "orderId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "订单id"
+        },
+        "orderSn": {
+          "type": "string",
+          "description": "订单编号"
+        },
+        "productAttr": {
+          "type": "string",
+          "description": "商品销售属性:[{'key':'颜色','value':'颜色'},{'key':'容量','value':'4G'}]"
+        },
+        "productBrand": {
+          "type": "string"
+        },
+        "productCategoryId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商品分类id"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productPic": {
+          "type": "string"
+        },
+        "productPrice": {
+          "type": "number",
+          "description": "销售价格"
+        },
+        "productQuantity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "购买数量"
+        },
+        "productSkuCode": {
+          "type": "string",
+          "description": "商品sku条码"
+        },
+        "productSkuId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商品sku编号"
+        },
+        "productSn": {
+          "type": "string"
+        },
+        "promotionAmount": {
+          "type": "number",
+          "description": "商品促销分解金额"
+        },
+        "promotionName": {
+          "type": "string",
+          "description": "商品促销名称"
+        },
+        "realAmount": {
+          "type": "number",
+          "description": "该商品经过优惠后的分解金额"
+        }
+      },
+      "title": "OmsOrderItem"
+    },
+    "OrderParam": {
+      "type": "object",
+      "properties": {
+        "cartIds": {
+          "type": "array",
+          "description": "被选中的购物车商品ID",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "couponId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "优惠券ID"
+        },
+        "memberReceiveAddressId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "收货地址ID"
+        },
+        "payType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "支付方式"
+        },
+        "useIntegration": {
+          "type": "integer",
+          "format": "int32",
+          "description": "使用的积分数"
+        }
+      },
+      "title": "OrderParam"
+    },
+    "SmsCoupon": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "金额"
+        },
+        "code": {
+          "type": "string",
+          "description": "优惠码"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "数量"
+        },
+        "enableTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "可以领取的日期"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberLevel": {
+          "type": "integer",
+          "format": "int32",
+          "description": "可领取的会员类型：0->无限时"
+        },
+        "minPoint": {
+          "type": "number",
+          "description": "使用门槛；0表示无门槛"
+        },
+        "name": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string",
+          "description": "备注"
+        },
+        "perLimit": {
+          "type": "integer",
+          "format": "int32",
+          "description": "每人限领张数"
+        },
+        "platform": {
+          "type": "integer",
+          "format": "int32",
+          "description": "使用平台：0->全部；1->移动；2->PC"
+        },
+        "publishCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "发行数量"
+        },
+        "receiveCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "领取数量"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "description": "优惠卷类型；0->全场赠券；1->会员赠券；2->购物赠券；3->注册赠券"
+        },
+        "useCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "已使用数量"
+        },
+        "useType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "使用类型：0->全场通用；1->指定分类；2->指定商品"
+        }
+      },
+      "title": "SmsCoupon"
+    },
+    "SmsCouponHistoryDetail": {
+      "type": "object",
+      "properties": {
+        "categoryRelationList": {
+          "type": "array",
+          "items": {
+            "originalRef": "SmsCouponProductCategoryRelation",
+            "$ref": "#/definitions/SmsCouponProductCategoryRelation"
+          }
+        },
+        "coupon": {
+          "originalRef": "SmsCoupon",
+          "$ref": "#/definitions/SmsCoupon"
+        },
+        "couponCode": {
+          "type": "string"
+        },
+        "couponId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "getType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "获取类型：0->后台赠送；1->主动获取"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberNickname": {
+          "type": "string",
+          "description": "领取人昵称"
+        },
+        "orderId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "订单编号"
+        },
+        "orderSn": {
+          "type": "string",
+          "description": "订单号码"
+        },
+        "productRelationList": {
+          "type": "array",
+          "items": {
+            "originalRef": "SmsCouponProductRelation",
+            "$ref": "#/definitions/SmsCouponProductRelation"
+          }
+        },
+        "useStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "使用状态：0->未使用；1->已使用；2->已过期"
+        },
+        "useTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "使用时间"
+        }
+      },
+      "title": "SmsCouponHistoryDetail"
+    },
+    "SmsCouponProductCategoryRelation": {
+      "type": "object",
+      "properties": {
+        "couponId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "parentCategoryName": {
+          "type": "string",
+          "description": "父分类名称"
+        },
+        "productCategoryId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productCategoryName": {
+          "type": "string",
+          "description": "产品分类名称"
+        }
+      },
+      "title": "SmsCouponProductCategoryRelation"
+    },
+    "SmsCouponProductRelation": {
+      "type": "object",
+      "properties": {
+        "couponId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string",
+          "description": "商品名称"
+        },
+        "productSn": {
+          "type": "string",
+          "description": "商品编码"
+        }
+      },
+      "title": "SmsCouponProductRelation"
+    },
+    "UmsIntegrationConsumeSetting": {
+      "type": "object",
+      "properties": {
+        "couponStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否可以和优惠券同用；0->不可以；1->可以"
+        },
+        "deductionPerAmount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "每一元需要抵扣的积分数量"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPercentPerOrder": {
+          "type": "integer",
+          "format": "int32",
+          "description": "每笔订单最高抵用百分比"
+        },
+        "useUnit": {
+          "type": "integer",
+          "format": "int32",
+          "description": "每次使用积分最小单位100"
+        }
+      },
+      "title": "UmsIntegrationConsumeSetting"
+    },
+    "UmsMemberReceiveAddress": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "城市"
+        },
+        "defaultStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否为默认"
+        },
+        "detailAddress": {
+          "type": "string",
+          "description": "详细地址(街道)"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "用户id"
+        },
+        "name": {
+          "type": "string",
+          "description": "收货人名称"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "电话号码"
+        },
+        "postCode": {
+          "type": "string",
+          "description": "邮政编码"
+        },
+        "province": {
+          "type": "string",
+          "description": "省份/直辖市"
+        },
+        "region": {
+          "type": "string",
+          "description": "区"
+        }
+      },
+      "title": "UmsMemberReceiveAddress"
+    }
+  }
+}

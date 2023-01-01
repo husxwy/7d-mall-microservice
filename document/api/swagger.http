@@ -1,0 +1,28 @@
+### gateway
+GET http://10.8.14.84:30300/swagger-resources
+
+
+###
+GET http://10.8.14.84:30300/mall-auth/v2/api-docs
+
+###
+GET http://10.8.14.84:30300/mall-admin/v2/api-docs
+
+
+###
+GET http://10.8.14.84:30300/mall-portal/v2/api-docs
+
+###
+GET http://10.8.14.84:30300/mall-search/v2/api-docs
+
+###
+GET http://10.8.14.84:30300/mall-demo/v2/api-docs
+
+###
+GET http://10.8.14.84:30300/mall-cart/v2/api-docs
+
+###
+GET http://10.8.14.84:30300/mall-member/v2/api-docs
+
+###
+GET http://10.8.14.84:30300/mall-order/v2/api-docs

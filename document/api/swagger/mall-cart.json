@@ -1,0 +1,1062 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "mall购物车相关接口文档",
+    "version": "1.0",
+    "title": "mall-购物车系统",
+    "contact": {
+      "name": "dunshan"
+    }
+  },
+  "host": "10.8.14.84:30300",
+  "basePath": "/mall-cart",
+  "tags": [
+    {
+      "name": "CartItemController",
+      "description": "购物车管理"
+    }
+  ],
+  "paths": {
+    "/cart/add": {
+      "post": {
+        "tags": [
+          "CartItemController"
+        ],
+        "summary": "添加商品到购物车",
+        "operationId": "addUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "cartItem",
+            "description": "cartItem",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OmsCartItem",
+              "originalRef": "OmsCartItem"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommonResult",
+              "originalRef": "CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/cart/addNew": {
+      "post": {
+        "tags": [
+          "CartItemController"
+        ],
+        "summary": "添加商品到购物车",
+        "operationId": "addNewUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "productSkuCode",
+            "in": "query",
+            "description": "productSkuCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "description": "quantity",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommonResult",
+              "originalRef": "CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/cart/clear": {
+      "post": {
+        "tags": [
+          "CartItemController"
+        ],
+        "summary": "清空购物车",
+        "operationId": "clearUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommonResult",
+              "originalRef": "CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/cart/delete": {
+      "post": {
+        "tags": [
+          "CartItemController"
+        ],
+        "summary": "删除购物车中的某个商品",
+        "operationId": "deleteUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "ids",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommonResult",
+              "originalRef": "CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/cart/getProduct/{productId}": {
+      "get": {
+        "tags": [
+          "CartItemController"
+        ],
+        "summary": "获取购物车中某个商品的规格,用于重选规格",
+        "operationId": "getCartProductUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "productId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommonResult«CartProduct»",
+              "originalRef": "CommonResult«CartProduct»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/cart/list": {
+      "get": {
+        "tags": [
+          "CartItemController"
+        ],
+        "summary": "获取某个会员的购物车列表",
+        "operationId": "listUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommonResult«List«OmsCartItem»»",
+              "originalRef": "CommonResult«List«OmsCartItem»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/cart/list/promotionNew/{memberId}": {
+      "post": {
+        "tags": [
+          "CartItemController"
+        ],
+        "summary": "获取某个会员的购物车列表,包括促销信息",
+        "operationId": "listPromotionnewUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "cartIds",
+            "description": "cartIds",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "memberId",
+            "in": "path",
+            "description": "memberId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CartPromotionItem",
+                "originalRef": "CartPromotionItem"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/cart/update/attr": {
+      "post": {
+        "tags": [
+          "CartItemController"
+        ],
+        "summary": "修改购物车中商品的规格",
+        "operationId": "updateAttrUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "cartItem",
+            "description": "cartItem",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OmsCartItem",
+              "originalRef": "OmsCartItem"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommonResult",
+              "originalRef": "CommonResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/cart/update/quantity": {
+      "get": {
+        "tags": [
+          "CartItemController"
+        ],
+        "summary": "修改购物车中某个商品的数量",
+        "operationId": "updateQuantityUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "description": "quantity",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommonResult",
+              "originalRef": "CommonResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "CartProduct": {
+      "type": "object",
+      "properties": {
+        "albumPics": {
+          "type": "string",
+          "description": "画册图片，连产品图片限制为5张，以逗号分割"
+        },
+        "brandId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "brandName": {
+          "type": "string",
+          "description": "品牌名称"
+        },
+        "deleteStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "删除状态：0->未删除；1->已删除"
+        },
+        "description": {
+          "type": "string",
+          "description": "商品描述"
+        },
+        "detailDesc": {
+          "type": "string"
+        },
+        "detailHtml": {
+          "type": "string",
+          "description": "产品详情网页内容"
+        },
+        "detailMobileHtml": {
+          "type": "string",
+          "description": "移动端网页详情"
+        },
+        "detailTitle": {
+          "type": "string"
+        },
+        "feightTemplateId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "giftGrowth": {
+          "type": "integer",
+          "format": "int32",
+          "description": "赠送的成长值"
+        },
+        "giftPoint": {
+          "type": "integer",
+          "format": "int32",
+          "description": "赠送的积分"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "keywords": {
+          "type": "string"
+        },
+        "lowStock": {
+          "type": "integer",
+          "format": "int32",
+          "description": "库存预警值"
+        },
+        "name": {
+          "type": "string"
+        },
+        "newStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "新品状态:0->不是新品；1->新品"
+        },
+        "note": {
+          "type": "string"
+        },
+        "originalPrice": {
+          "type": "number",
+          "description": "市场价"
+        },
+        "pic": {
+          "type": "string"
+        },
+        "previewStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否为预告商品：0->不是；1->是"
+        },
+        "price": {
+          "type": "number"
+        },
+        "productAttributeCategoryId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productAttributeList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PmsProductAttribute",
+            "originalRef": "PmsProductAttribute"
+          }
+        },
+        "productCategoryId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productCategoryName": {
+          "type": "string",
+          "description": "商品分类名称"
+        },
+        "productSn": {
+          "type": "string",
+          "description": "货号"
+        },
+        "promotionEndTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "促销结束时间"
+        },
+        "promotionPerLimit": {
+          "type": "integer",
+          "format": "int32",
+          "description": "活动限购数量"
+        },
+        "promotionPrice": {
+          "type": "number",
+          "description": "促销价格"
+        },
+        "promotionStartTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "促销开始时间"
+        },
+        "promotionType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "促销类型：0->没有促销使用原价;1->使用促销价；2->使用会员价；3->使用阶梯价格；4->使用满减价格；5->限时购"
+        },
+        "publishStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "上架状态：0->下架；1->上架"
+        },
+        "recommandStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "推荐状态；0->不推荐；1->推荐"
+        },
+        "sale": {
+          "type": "integer",
+          "format": "int32",
+          "description": "销量"
+        },
+        "serviceIds": {
+          "type": "string",
+          "description": "以逗号分割的产品服务：1->无忧退货；2->快速退款；3->免费包邮"
+        },
+        "skuStockList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PmsSkuStock",
+            "originalRef": "PmsSkuStock"
+          }
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "排序"
+        },
+        "stock": {
+          "type": "integer",
+          "format": "int32",
+          "description": "库存"
+        },
+        "subTitle": {
+          "type": "string",
+          "description": "副标题"
+        },
+        "unit": {
+          "type": "string",
+          "description": "单位"
+        },
+        "usePointLimit": {
+          "type": "integer",
+          "format": "int32",
+          "description": "限制使用的积分数"
+        },
+        "verifyStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "审核状态：0->未审核；1->审核通过"
+        },
+        "weight": {
+          "type": "number",
+          "description": "商品重量，默认为克"
+        }
+      },
+      "title": "CartProduct"
+    },
+    "CartPromotionItem": {
+      "type": "object",
+      "properties": {
+        "createDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间"
+        },
+        "deleteStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否删除"
+        },
+        "growth": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "integration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberNickname": {
+          "type": "string",
+          "description": "会员昵称"
+        },
+        "modifyDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "修改时间"
+        },
+        "price": {
+          "type": "number",
+          "description": "添加到购物车的价格"
+        },
+        "productAttr": {
+          "type": "string",
+          "description": "商品销售属性:[{'key':'颜色','value':'颜色'},{'key':'容量','value':'4G'}]"
+        },
+        "productBrand": {
+          "type": "string"
+        },
+        "productCategoryId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商品分类"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string",
+          "description": "商品名称"
+        },
+        "productPic": {
+          "type": "string",
+          "description": "商品主图"
+        },
+        "productSkuCode": {
+          "type": "string",
+          "description": "商品sku条码"
+        },
+        "productSkuId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productSn": {
+          "type": "string"
+        },
+        "productSubTitle": {
+          "type": "string",
+          "description": "商品副标题（卖点）"
+        },
+        "promotionMessage": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "购买数量"
+        },
+        "realStock": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reduceAmount": {
+          "type": "number"
+        }
+      },
+      "title": "CartPromotionItem"
+    },
+    "CommonResult": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "type": "object"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult"
+    },
+    "CommonResult«CartProduct»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "$ref": "#/definitions/CartProduct",
+          "originalRef": "CartProduct"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«CartProduct»"
+    },
+    "CommonResult«List«OmsCartItem»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OmsCartItem",
+            "originalRef": "OmsCartItem"
+          }
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommonResult«List«OmsCartItem»»"
+    },
+    "OmsCartItem": {
+      "type": "object",
+      "properties": {
+        "createDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间"
+        },
+        "deleteStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否删除"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberNickname": {
+          "type": "string",
+          "description": "会员昵称"
+        },
+        "modifyDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "修改时间"
+        },
+        "price": {
+          "type": "number",
+          "description": "添加到购物车的价格"
+        },
+        "productAttr": {
+          "type": "string",
+          "description": "商品销售属性:[{'key':'颜色','value':'颜色'},{'key':'容量','value':'4G'}]"
+        },
+        "productBrand": {
+          "type": "string"
+        },
+        "productCategoryId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商品分类"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string",
+          "description": "商品名称"
+        },
+        "productPic": {
+          "type": "string",
+          "description": "商品主图"
+        },
+        "productSkuCode": {
+          "type": "string",
+          "description": "商品sku条码"
+        },
+        "productSkuId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productSn": {
+          "type": "string"
+        },
+        "productSubTitle": {
+          "type": "string",
+          "description": "商品副标题（卖点）"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "购买数量"
+        }
+      },
+      "title": "OmsCartItem"
+    },
+    "PmsProductAttribute": {
+      "type": "object",
+      "properties": {
+        "filterType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "分类筛选样式：1->普通；1->颜色"
+        },
+        "handAddStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否支持手动新增；0->不支持；1->支持"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "inputList": {
+          "type": "string",
+          "description": "可选值列表，以逗号隔开"
+        },
+        "inputType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "属性录入方式：0->手工录入；1->从列表中选取"
+        },
+        "name": {
+          "type": "string"
+        },
+        "productAttributeCategoryId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "relatedStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "相同属性产品是否关联；0->不关联；1->关联"
+        },
+        "searchType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "检索类型；0->不需要进行检索；1->关键字检索；2->范围检索"
+        },
+        "selectType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "属性选择类型：0->唯一；1->单选；2->多选"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "排序字段：最高的可以单独上传图片"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "description": "属性的类型；0->规格；1->参数"
+        }
+      },
+      "title": "PmsProductAttribute"
+    },
+    "PmsSkuStock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "lockStock": {
+          "type": "integer",
+          "format": "int32",
+          "description": "锁定库存"
+        },
+        "lowStock": {
+          "type": "integer",
+          "format": "int32",
+          "description": "预警库存"
+        },
+        "pic": {
+          "type": "string",
+          "description": "展示图片"
+        },
+        "price": {
+          "type": "number"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "promotionPrice": {
+          "type": "number",
+          "description": "单品促销价格"
+        },
+        "sale": {
+          "type": "integer",
+          "format": "int32",
+          "description": "销量"
+        },
+        "skuCode": {
+          "type": "string",
+          "description": "sku编码"
+        },
+        "spData": {
+          "type": "string",
+          "description": "商品销售属性，json格式"
+        },
+        "stock": {
+          "type": "integer",
+          "format": "int32",
+          "description": "库存"
+        }
+      },
+      "title": "PmsSkuStock"
+    }
+  }
+}
