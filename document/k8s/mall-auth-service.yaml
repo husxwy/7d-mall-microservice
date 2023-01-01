@@ -1,12 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: svc-mall-auth
+  name: mall-auth
+  labels:
+    k8s.kuboard.cn/layer: svc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: svc-mall-auth
+      app: mall-auth
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -15,11 +17,12 @@ spec:
   template:
     metadata:
       labels:
-        app: svc-mall-auth
+        app: mall-auth
     spec:
       initContainers:
         - name: init-skywalking-agent
-          image: registry.cn-beijing.aliyuncs.com/xngczl/skywalking-agent:8.1.0
+          image: harbor.kefu.com/test/skywalking-agent:8.1.0
+          imagePullPolicy: IfNotPresent
           command:
             - "sh"
             - "-c"
@@ -28,8 +31,61 @@ spec:
             - mountPath: /vmskywalking/agent
               name: skywalking-agent
       containers:
-        - image: registry.cn-beijing.aliyuncs.com/xngczl/mall-auth:1.0
-          imagePullPolicy: Always
+        - env:
+#          - name: KUBERNETES_NAMESPACE
+#            valueFrom:
+#              fieldRef:
+#                apiVersion: v1
+#                fieldPath: metadata.namespace
+#          - name: POD_NAME
+#            valueFrom:
+#              fieldRef:
+#                apiVersion: v1
+#                fieldPath: metadata.name
+#          - name: POD_NAME
+#            valueFrom:
+#              fieldRef:
+#                apiVersion: v1
+#                fieldPath: metadata.name
+#          - name: MY_POD_IP
+#            valueFrom:
+#              fieldRef:
+#                apiVersion: v1
+#                fieldPath: status.podIP
+#          - name: EUREKA_INSTANCE_HOSTNAME
+#            value: ${POD_NAME}.server
+#          - name: APP_NAME
+#            value: review-save
+          - name: JAVA_OPTS
+            value: >-
+              -Xss256k 
+              -Duser.timezone=Asia/Shanghai 
+              -Djava.security.egd=file:/dev/./urandom
+#            '-Xss256k -Duser.timezone=Asia/Shanghai -Djava.security.egd=file:/dev/./urandom'
+#            value: -Xmx4096M -Xms4096M -Xss256k -Duser.timezone=Asia/Shanghai -XX:+HeapDumpOnOutOfMemoryError
+#              -XX:HeapDumpPath=/data/logs/review-save/heapdump.hprof -XX:+PrintGCDetails
+#              -XX:+PrintGCDateStamps -Xloggc:/data/logs/review-save/gc.log
+#          ENTRYPOINT ["java","-Dapp.id=mall-auth","-javaagent:/opt/skywalking/agent/skywalking-agent.jar","-Dskywalking.agent.service_name=mall-auth","-Dskywalking.collector.backend_service=skywalking-oap:11800","-Dcom.sun.management.jmxremote","-Dcom.sun.management.jmxremote.authenticate=false","-Dcom.sun.management.jmxremote.ssl=false","-Dcom.sun.management.jmxremote.port=1100","-Dcom.sun.management.jmxremote.rmi.port=1100","-Djava.rmi.server.hostname=localhost","-jar","-Dspring.profiles.active=prod","-Djava.security.egd=file:/dev/./urandom","/app.jar"]
+          - name: AGENT_OPTS
+            value: >-
+              -Dapp.id=mall-auth
+              -javaagent:/opt/skywalking/agent/skywalking-agent.jar
+              -Dskywalking.agent.service_name=mall-auth
+              -Dskywalking.collector.backend_service=skywalking-oap:11800
+              -Dskywalking.trace.ignore_path=/actuator/**,Lettuce/**
+          - name: APP_OPTS
+            value: >-
+              --spring.profiles.active=test
+#              --spring.cloud.nacos.discovery.server-addr=nacos.7d.svc.cluster.local:8848
+#              --spring.cloud.nacos.config.server-addr=nacos.7d.svc.cluster.local:8848
+            #
+            #
+#            value: '--spring.profiles.active=test --eureka.client.service-url.defaultZone=http://review-eureka-0.review-eureka:8080/eureka/,http://review-eureka-1.review-eureka:8080/eureka/,http://review-eureka-2.review-eureka:8080/eureka/
+#            --server.port=8080 --eureka.client.enabled=true --eureka.instance.ip-address=${MY_POD_IP}
+#            --eureka.instance.hostname=${POD_NAME}.${APP_NAME} --spring.boot.admin.client.prefer-ip=true
+#            --server.ip=${MY_POD_IP} --server.address=${MY_POD_IP} '
+          image: harbor.kefu.com/test/mall-auth:1.0-SNAPSHOT-husx-master-c647c53-1
+          imagePullPolicy: IfNotPresent
           name: mall-auth
           ports:
             - containerPort: 8401
@@ -44,12 +100,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-mall-auth
+  name: mall-auth
 spec:
   ports:
     - name: http
       port: 8401
       protocol: TCP
       targetPort: 8401
+      nodePort: 31301
   selector:
-    app: svc-mall-auth
+    app: mall-auth
+  type: NodePort

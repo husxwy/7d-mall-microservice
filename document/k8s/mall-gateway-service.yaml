@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gateway-mall-gateway
+  labels:
+    k8s.kuboard.cn/layer: gateway
 spec:
   replicas: 1
   selector:
@@ -19,7 +21,8 @@ spec:
     spec:
       initContainers:
         - name: init-skywalking-agent
-          image: registry.cn-beijing.aliyuncs.com/xngczl/skywalking-agent:8.1.0
+          image: harbor.kefu.com/test/skywalking-agent:8.1.0
+          imagePullPolicy: IfNotPresent
           command:
             - "sh"
             - "-c"
@@ -28,8 +31,24 @@ spec:
             - mountPath: /vmskywalking/agent
               name: skywalking-agent
       containers:
-        - image: registry.cn-beijing.aliyuncs.com/xngczl/mall-gateway:1.0
-          imagePullPolicy: Always
+        - env:
+            - name: JAVA_OPTS
+              value: >-
+                -Xss256k 
+                -Duser.timezone=Asia/Shanghai 
+                -Djava.security.egd=file:/dev/./urandom
+            - name: AGENT_OPTS
+              value: >-
+                -Dapp.id=mall-gateway
+                -javaagent:/opt/skywalking/agent/skywalking-agent.jar
+                -Dskywalking.agent.service_name=mall-gateway
+                -Dskywalking.collector.backend_service=skywalking-oap:11800
+                -Dskywalking.trace.ignore_path=/actuator/**,Lettuce/**
+            - name: APP_OPTS
+              value: >-
+                --spring.profiles.active=test
+          image: harbor.kefu.com/test/mall-gateway:1.0-SNAPSHOT-husx-master-c647c53-4
+          imagePullPolicy: IfNotPresent
           name: mall-gateway
           ports:
             - containerPort: 8201
@@ -46,12 +65,12 @@ kind: Service
 metadata:
   name: gateway-mall-gateway
 spec:
-  type: NodePort         // 配置为NodePort，外部可以访问
+  type: NodePort        # 配置为NodePort，外部可以访问
   ports:
     - name: http
       port: 8201
       protocol: TCP
       targetPort: 8201
-      nodePort: 30001      // NodePort，外部访问的端口
+      nodePort: 30300     #  NodePort，外部访问的端口
   selector:
     app: gateway-mall-gateway

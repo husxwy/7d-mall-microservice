@@ -1,12 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: svc-mall-cart
+  name: mall-cart
+  labels:
+    k8s.kuboard.cn/layer: svc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: svc-mall-cart
+      app: mall-cart
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -15,11 +17,12 @@ spec:
   template:
     metadata:
       labels:
-        app: svc-mall-cart
+        app: mall-cart
     spec:
       initContainers:
         - name: init-skywalking-agent
-          image: registry.cn-beijing.aliyuncs.com/xngczl/skywalking-agent:8.1.0
+          image: harbor.kefu.com/test/skywalking-agent:8.1.0
+          imagePullPolicy: IfNotPresent
           command:
             - "sh"
             - "-c"
@@ -28,8 +31,24 @@ spec:
             - mountPath: /vmskywalking/agent
               name: skywalking-agent
       containers:
-        - image: registry.cn-beijing.aliyuncs.com/xngczl/mall-cart:1.0
-          imagePullPolicy: Always
+        - env:
+            - name: JAVA_OPTS
+              value: >-
+                -Xss256k 
+                -Duser.timezone=Asia/Shanghai 
+                -Djava.security.egd=file:/dev/./urandom
+            - name: AGENT_OPTS
+              value: >-
+                -Dapp.id=mall-cart
+                -javaagent:/opt/skywalking/agent/skywalking-agent.jar
+                -Dskywalking.agent.service_name=mall-cart
+                -Dskywalking.collector.backend_service=skywalking-oap:11800
+                -Dskywalking.trace.ignore_path=/actuator/**,Lettuce/**
+            - name: APP_OPTS
+              value: >-
+                --spring.profiles.active=test
+          image: harbor.kefu.com/test/mall-cart:1.0-SNAPSHOT-husx-master-9a92e53-1
+          imagePullPolicy: IfNotPresent
           name: mall-cart
           ports:
             - containerPort: 8086
@@ -44,7 +63,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-mall-cart
+  name: mall-cart
 spec:
   ports:
     - name: http
@@ -52,4 +71,4 @@ spec:
       protocol: TCP
       targetPort: 8086
   selector:
-    app: svc-mall-cart
+    app: mall-cart

@@ -1,0 +1,104 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: mall-vue-nginx
+   labels:
+     k8s.kuboard.cn/layer: web
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: mall-vue-nginx
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: mall-vue-nginx
+    spec:
+      affinity: {}
+      containers:
+        - env:
+            - name: KUBERNETES_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+          image: harbor.kefu.com/test/mall-vue-nginx:1.0.0-husx-master-5827b1a-5
+          imagePullPolicy: IfNotPresent
+          name: mall-vue-nginx
+#          ports:
+#            - containerPort: 8080
+#              name: server
+#              protocol: TCP
+#            - containerPort: 8081
+#              name: management
+#              protocol: TCP
+          resources:
+            limits:
+              cpu: "1"
+              memory: 384Mi
+            requests:
+              cpu: 500m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /etc/nginx/nginx.conf
+              name: nginx-conf
+              subPath: nginx.conf
+#            - mountPath: /usr/share/nginx/html/zwznsh
+#              name: mall-pvc
+#              readOnly: true
+#              subPath: zwznsh
+#            - mountPath: /var/log/nginx
+#              name: app-log
+      dnsPolicy: ClusterFirst
+#      nodeSelector:
+#        deploy: apps
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - configMap:
+            defaultMode: 420
+            name: mall-nginx-conf
+          name: nginx-conf
+#        - name: mall-pvc
+#          persistentVolumeClaim:
+#            claimName: mall-pvc
+#        - hostPath:
+#            path: /apps/logs/mall-test-nginx
+#            type: ""
+#          name: app-log
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: mall-vue-nginx
+  name: mall-vue-nginx
+spec:
+  ports:
+    - name: server
+      nodePort: 30398
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: mall-vue-nginx
+  sessionAffinity: None
+  type: NodePort
+
